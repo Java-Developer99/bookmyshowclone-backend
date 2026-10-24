@@ -1,0 +1,29 @@
+
+# Java / Gradle build output
+**/.gradle/
+**/build/
+**/out/
+*.class
+
+# IDE settings
+.idea/
+.vscode/
+*.iml
+
+# Logs and temporary files
+*.log
+logs/
+hs_err_pid*
+replay_pid*
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+**/application-local.yml
+**/application-local.yaml
+**/application-local.properties
+
+# OS files
+.DS_Store
+Thumbs.db
