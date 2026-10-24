@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: API_GATEWAY
+
+  main:
+    web-application-type: reactive
+
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+              lower-case-service-id: true
+
+      routes:
+        - id: user-service
+          uri: lb://user_service
+          predicates:
+            - Path=/users/**
+          filters:
+            - StripPrefix=1
+
+  config:
+    import: optional:configserver:http://localhost:8085
+
+server:
+  port: 8080

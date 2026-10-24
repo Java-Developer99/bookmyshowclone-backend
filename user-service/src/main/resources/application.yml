@@ -1,0 +1,14 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/bookmyshow-userservice
+
+  application:
+    name: USER_SERVICE
+
+  config:
+    import: optional:configserver:http://localhost:8085
+server:
+  port: 8081
+
+

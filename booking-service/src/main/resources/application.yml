@@ -1,0 +1,43 @@
+server:
+  port: 8084
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/booking_service
+    username: root
+    password: Springboot@1
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+      dialect: org.hibernate.dialect.MySQL8Dialect
+      format_sql: true
+      show_sql: true
+  application:
+    name: BOOKING-SERVICE
+  config:
+    import: optional:configserver:http://localhost:8085
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: booking-service-group
+      auto-offset-reset: earliest
+#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+
+kafka:
+  topics:
+    booking-created: booking-created-topic
+    booking-completed: booking-completed-topic
+    booking-canceled: booking-canceled-topic
+    payment-completed: payment-completed-topic
+
+
+
+
+
+
+
